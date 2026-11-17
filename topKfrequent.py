@@ -2,10 +2,21 @@ def topKFrequent(nums,k):
     frequency = {}
     for i in nums:
         frequency[i] = frequency.get(i,0)+1
-    result = [key for key,v in frequency.items() if v>= k]
-    return result
-topKFrequent
+    result = sorted(frequency,key = frequency.get,reverse=True)
+    
+    return result               
 
-nums = [1,2,2,3,3,3]
+def topkFrequent(nums,k):
+    frequency = {}
+    for i in nums:
+        frequency[i] = frequency.get(i,0)+1
+    frequecies = [[] for _ in range(len(nums))]
+    for key , value in frequency.items():
+        frequecies[value].append(key)
+    print(frequecies)
+
+
+nums = [1,2,2,3,3,5,5,5,6,6,6,6,6,7,3]
 k = 2
-print(topKFrequent(nums,2))
+##print(topKFrequent(nums,k))
+topkFrequent(nums,k)
