@@ -13,10 +13,16 @@ def topkFrequent(nums,k):
     frequecies = [[] for _ in range(len(nums))]
     for key , value in frequency.items():
         frequecies[value].append(key)
-    print(frequecies)
+    result = []
+    for i in range(len(nums)-1,0,-1):
+        if k == 0:
+            return result
+        if len(frequecies[i]) != 0:
+            result += frequecies[i]
+            k -= len(frequecies[i])
 
 
 nums = [1,2,2,3,3,5,5,5,6,6,6,6,6,7,3]
 k = 2
 ##print(topKFrequent(nums,k))
-topkFrequent(nums,k)
+print(topkFrequent(nums,k))
